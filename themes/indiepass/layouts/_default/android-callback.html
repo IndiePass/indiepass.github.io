@@ -1,0 +1,22 @@
+{{ define "main" }}
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code') || '';
+    const state = urlParams.get('state') || '';
+    const callbackUrl = 'indigenous-android://oauthcallback?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(state);
+
+    // Immediate redirect
+    window.location.replace(callbackUrl);
+
+    // Update the fallback link and handle cases where redirect might fail or be blocked
+    document.addEventListener('DOMContentLoaded', function() {
+        const link = document.getElementById('callback-link');
+        if (link) {
+            link.href = callbackUrl;
+        }
+    });
+</script>
+<h1>IndiePass OAuth Sign in.</h1>
+If IndiePass is not opening, <a id="callback-link" href="#">click here</a>
+{{ end }}
+

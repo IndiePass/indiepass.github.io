@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>IndiePass</title>
+    
+
+    
+    <link rel="stylesheet" href="/scss/main.min.ff4610aa3f7f5d4e2cd2386f221982d64ace9cf262da83c20106506cdf69e9e3.css" integrity="sha256-/0YQqj9/XU4s0jhvIhmC1krOnPJi2oPCAQZQbN9p6eM=">
+</head>
+<body>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code') || '';
+    const state = urlParams.get('state') || '';
+    const callbackUrl = 'indigenous-android://oauthcallback?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(state);
+
+    
+    window.location.replace(callbackUrl);
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        const link = document.getElementById('callback-link');
+        if (link) {
+            link.href = callbackUrl;
+        }
+    });
+</script>
+<h1>IndiePass OAuth Sign in.</h1>
+If IndiePass is not opening, <a id="callback-link" href="#">click here</a>
+
+<footer>
+    <small>&copy; IndiePass. Licensed under <a href="https://opensource.org/license/GPL-3.0">GPL-3.0.</a></small>
+</footer>
+</body>
+</html>

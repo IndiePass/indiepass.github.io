@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ .Title }}</title>
+    {{ with .Params.custom_meta }}
+    <meta name="{{ .name }}" content="{{ .content }}">
+    {{ end }}
+
+    {{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+</head>
+<body>
+{{ block "main" . }}
+{{ .Content }}
+{{ end }}
+<footer>
+    <small>&copy; IndiePass. Licensed under <a href="https://opensource.org/license/GPL-3.0">GPL-3.0.</a></small>
+</footer>
+</body>
+</html>
