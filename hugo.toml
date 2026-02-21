@@ -3,17 +3,20 @@ languageCode = 'en-gb'
 title = 'IndiePass'
 theme = 'indiepass'
 
-ignoreLogs = ['warning-goldmark-raw-html']
+[params]
+description = 'IndiePass, a social app for the IndieWeb'
+favicon = 'favicon.svg'
+logo = 'images/logo.svg'
 
 [markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
 
 [module]
-  [[module.mounts]]
-    source = 'assets'
-    target = 'assets'
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
 
 [caches]
 [caches.images]

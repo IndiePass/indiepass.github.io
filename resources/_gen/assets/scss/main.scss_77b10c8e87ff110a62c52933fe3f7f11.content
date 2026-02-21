@@ -1,1 +1,1 @@
-body{font-family:system-ui,sans-serif;background-color:#13252f;color:#fff;line-height:1.5;text-align:center;text-wrap:balance}main{padding-top:10vh;min-height:80vh;width:40vw;margin:auto}a{color:#ddd}
+body{font-family:system-ui,sans-serif;background-color:#13252f;color:#fff;line-height:1.5;text-align:center;text-wrap:balance;margin:0;padding:0;border-top:.5rem solid #c62828}main{padding-top:10vh;min-height:80vh;width:40vw;margin:auto}a{color:#ddd}

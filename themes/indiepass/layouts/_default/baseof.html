@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.LanguageCode | default "en" }}">
 <head>
-    <title>{{ .Title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+    {{ with site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
     {{ with .Params.custom_meta }}
-    <meta name="{{ .name }}" content="{{ .content }}">
+        <meta name="{{ .name }}" content="{{ .content }}">
     {{ end }}
-
     {{ $style := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    {{ with site.Params.favicon }}<link rel="icon" type="image/svg+xml" href="{{ . | absURL }}"/>{{ end }}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ site.Title }}">
+    <meta property="og:url" content="{{ site.BaseURL }}">
+    <meta name="theme-color" content="#1b1b1b">
 </head>
 <body>
 {{ block "main" . }}

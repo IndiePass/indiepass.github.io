@@ -17,3 +17,6 @@ The app also requires a significant amount of updates to bring it up to par with
 it remains secure and compliant with upcoming requirements.
 
 If you are interested in taking over the project, please [get in touch](mailto:mark@marksuth.dev).
+
+**Heads up:**
+Once the domain indiepass.app expires in November 2026, the oauth callback will no longer work (if it's not already broken), which will make the app pretty much useless.
